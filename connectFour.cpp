@@ -67,7 +67,7 @@ void makeMove(char **board, int rows, int columns, char player){
 		int b;	
 		cout<<"Which column would you like to place your piece in? ";
 		cin>>b;
-		if (b<1 || b>columns-1 || cin.fail()){
+		if (b<1 || b>columns || cin.fail()){
 			cin.clear();
 			cin.ignore(1000, '\n');
 			cout<<"Sorry! You didn't input an integer between 1 and the number of columns.  Please input a valid integer to continue!"<<endl;
@@ -218,7 +218,7 @@ int checkLeftDiagonal(char **board, int rows, int columns, int pieces, char play
 	int count;
 	for(int i = rows; i>0; i--){
 		for(int j = 0; j<columns; j++){
-			for (int z = 0; z<=i && z<=j; z++){
+			for (int z = 0; z<=i && z<=columns-pieces; z++){
 				if(board[i-z][j+z] == player)
 					count+=1;
 				else if (count>=pieces)
