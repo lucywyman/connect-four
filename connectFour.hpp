@@ -46,9 +46,20 @@ void initializeBoard(char **board, int rows, int columns, int pieces);
   **************************************/
 void makeMove(char **board, int rows, int columns, char player);
 
-
+/***************************************
+  **Function: aiPlayer
+  **Description: Ask user whether there are 1 or 2 human players to determine whether to run ai or not.
+  **Parameters: none
+  **Post-conditions: Must know whether ai should be used or not!  Return 1 or 2;
+  *************************************/
 int aiPlayer();
 
+/*************************************
+  **Function: playai
+  **Description: ai makes a move
+  **Parameters: board, rows, columns, which player the computer is
+  **Pre-conditions: User must say there is only one human
+  ************************************/
 void playai(char **board, int rows, int columns, char player);
 
 /*************************************
@@ -57,8 +68,13 @@ void playai(char **board, int rows, int columns, char player);
   **Parameters: board, rows, columns, pieces, and whether someone has won.
   ***********************************/
 void playGame(char **board, int rows, int columns, int pieces, int win);
-
-int checkWin(char **board, int rows, int columns, int pieces, char player);
+/************************************
+  **Function: checkWin
+ **Description: use each "check win" function to see if the user has won the game horizontally, vertically or diagonally. 
+**Parameters: board, rows, columns, pieces needed to win, and the player who is being check for win.
+**Post-condition: determine whether a player has won or not!
+************************************/
+ int checkWin(char **board, int rows, int columns, int pieces, char player);
 
 int checkHorizontal(char **board, int rows, int columns, int pieces, char player);
 
